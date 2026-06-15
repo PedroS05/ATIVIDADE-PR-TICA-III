@@ -1,0 +1,342 @@
+/* PALETA DE CORES */
+:root {
+    /* Marca */
+    --cor-principal: #1b2a6d;
+    --cor-principal-hover: #120b4f;
+    --cor-principal-suave: #a9bffa;
+    --cor-navbar-inicio: #2f00cb;
+    --cor-navbar-fim: #120b4f;
+
+    /* Texto */
+    --cor-texto: black;
+    --cor-texto-secundario: gray;
+    --cor-texto-terciario: lightgray;
+
+    /* Fundos e bordas */
+    --cor-fundo-pagina: #f4f5f7;
+    --cor-fundo-card: white;
+    --cor-borda: #eff3f4;
+    --cor-capa-vazia: #cfd9de;
+
+    /* Botão "Seguir" (estilo X) */
+    --cor-botao-seguir: #596d84;
+    --cor-botao-seguir-hover: #343434;
+
+    /* Medidas reutilizáveis */
+    --raio-card: 18px;
+    --raio-botao: 12px;
+    --raio-midia: 12px;
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    /* Aliases (compatibilidade) */
+    --bordo: var(--cor-principal);
+    --bordo-hover: var(--cor-principal-hover);
+    --rosa-claro: var(--cor-principal-suave);
+} /* struct root para definição própria de cor, evita se perder.
+
+/* ----------------------------------------
+   BASE
+   ---------------------------------------- */
+body {
+    background: var(--cor-fundo-pagina);
+    color: var(--cor-texto);
+}
+
+.card {
+    border: none;
+    border-radius: var(--raio-card);
+    box-shadow: var(--sombra-card);
+    background: var(--cor-fundo-card);
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: var(--cor-principal) !important;
+    box-shadow: 0 0 0 0.125em color-mix(in srgb, var(--cor-principal) 20%, transparent) !important;
+}
+
+/* ----------------------------------------
+   BOTÕES
+   ---------------------------------------- */
+.button.botao-bordo {
+    background-color: var(--cor-principal) !important;
+    border-color: var(--cor-principal) !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: var(--raio-botao);
+    transition: background-color 0.2s ease;
+}
+
+.button.botao-bordo:hover {
+    background-color: var(--cor-principal-hover) !important;
+    border-color: var(--cor-principal-hover) !important;
+}
+
+.button.botao-seguir {
+    background: var(--cor-botao-seguir) !important;
+    border-color: var(--cor-botao-seguir) !important;
+    color: white !important;
+}
+
+.button.botao-seguir:hover {
+    background: var(--cor-botao-seguir-hover) !important;
+    border-color: var(--cor-botao-seguir-hover) !important;
+}
+
+.botao-acao {
+    background: transparent;
+    border: none;
+    color: var(--cor-texto-terciario);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.botao-acao:hover {
+    color: var(--cor-principal);
+}
+
+.botao-perfil-acao {
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    min-width: 120px;
+}
+
+/* ----------------------------------------
+   NAVBAR
+   ---------------------------------------- */
+.navbar {
+    background: linear-gradient(90deg, var(--cor-navbar-inicio), var(--cor-navbar-fim)) !important;
+}
+
+.navbar-item {
+    color: white !important;
+    font-weight: 600;
+}
+
+.navbar-item:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* ----------------------------------------
+   FEED — formulário e mídia dos posts
+   ---------------------------------------- */
+.post-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.botao-midia {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icone-midia {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.nome-midia {
+    font-size: 0.9rem;
+    color: var(--cor-texto-terciario);
+    margin-top: 8px;
+}
+
+.post-imagem,
+.post-video {
+    display: block;
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: var(--raio-midia);
+}
+
+/* ----------------------------------------
+   PERFIL PÚBLICO (estilo X)
+   ---------------------------------------- */
+.perfil-container {
+    max-width: 600px;
+    min-height: 100vh;
+    padding: 0;
+    background: var(--cor-fundo-card);
+    border-left: 1px solid var(--cor-borda);
+    border-right: 1px solid var(--cor-borda);
+}
+
+.perfil-x {
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.perfil-capa {
+    height: 200px;
+    background-color: var(--cor-capa-vazia);
+    background-size: cover;
+    background-position: center;
+}
+
+.perfil-capa-padrao {
+    background: linear-gradient(
+        135deg,
+        var(--cor-navbar-inicio) 0%,
+        var(--cor-navbar-fim) 45%,
+        var(--cor-capa-vazia) 100%
+    );
+}
+
+.perfil-acoes-topo {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
+    margin-top: -28px;
+    padding: 12px 16px 0;
+}
+
+.perfil-avatar-wrap {
+    margin-top: -67px;
+    padding: 0 16px;
+}
+
+.perfil-avatar {
+    width: 134px;
+    height: 134px;
+    border: 4px solid var(--cor-fundo-card);
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--cor-fundo-card);
+}
+
+.perfil-info {
+    padding: 12px 16px 0;
+}
+
+.perfil-nome {
+    margin-bottom: 4px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--cor-texto);
+}
+
+.perfil-username, .perfil-meta, .perfil-stat, .perfil-aba, .perfil-sem-posts, .post-handle {
+    color: var(--cor-texto-secundario);
+}
+
+.perfil-bio,
+.post-texto,
+.post-autor strong,
+.perfil-stat strong {
+    color: var(--cor-texto);
+}
+
+.perfil-username,
+.perfil-bio {
+    margin-bottom: 12px;
+}
+
+.perfil-bio,
+.post-texto {
+    white-space: pre-wrap;
+}
+
+.perfil-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.perfil-stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 12px;
+}
+
+.perfil-stat {
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.perfil-stat span {
+    margin-left: 4px;
+}
+
+.perfil-abas {
+    margin-top: 8px;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.perfil-aba {
+    display: inline-block;
+    position: relative;
+    padding: 16px;
+    font-weight: 700;
+}
+
+.perfil-aba.ativa {
+    color: var(--cor-texto);
+}
+
+.perfil-aba.ativa::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px;
+    border-radius: 999px;
+    background: var(--cor-principal);
+}
+
+.perfil-lista-posts {
+    background: var(--cor-fundo-card);
+}
+
+.post-perfil {
+    border-bottom: 1px solid var(--cor-borda);
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.post-linha {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.post-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-corpo {
+    flex: 1;
+    min-width: 0;
+}
+
+.post-autor {
+    margin-bottom: 4px;
+}
+
+.post-handle {
+    margin-left: 6px;
+}
+
+.post-texto {
+    margin-bottom: 10px;
+}
+
+.perfil-sem-posts {
+    padding: 32px 16px;
+    text-align: center;
+}
+
+.form-perfil .field {
+    margin-bottom: 1rem;
+}
